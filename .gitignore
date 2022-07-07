@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Harry added
 .ipynb_checkpoints/
+data_origin/FS_sp500_Value.csv
+data_origin/FS_sp500_Value.json
 
 # C extensions
 *.so
