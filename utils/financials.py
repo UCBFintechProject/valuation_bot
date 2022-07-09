@@ -1,12 +1,9 @@
 """
-This class was copied and modified from:
 
-https://www.kaggle.com/code/hanseopark/prediction-of-price-for-ml-with-finance-stats?scriptVersionId=67455884&cellId=5
+NOTE: This is a modified version of an object class that inports data and also performs calculations that we need for valuation.
+The MarketCap was missing too much data in teh stats file.  So we added OutstandingShare to the collectiuon process and calculated MarketCap afterwards right in the notebook.
 
-NOTE: Thsi really-well written class makes calculations for financial reporting.  However, the MarketCap being very
-crucial to our valuation process, is turning up many NaNs to proceed.  With this class slighlty customized, the MarketyCap
-went from 95% NaNs to under 2%!!
-
+SRC: https://www.kaggle.com/code/hanseopark/prediction-of-price-for-ml-with-finance-stats?scriptVersionId=67455884&cellId=5
 
 """
 import json
@@ -30,8 +27,9 @@ class VBot:
         df = pd.read_json(url_stats)
         if preprocessing == True:
             """
-            NOTE: There are far too many missing values to bother with these. 15:151 had values.
-                  We will recalculate MarketCap further down the pipe since it's more time-sensitive anyway.
+            NOTE: There are far too many missing values. 15:151 had values.
+                  We'll simply recalculate MarketCap outside of this function.
+                  
             """
             df_per = self.get_PER() # PER
             df_psr = self.get_PSR() # Price/Sales
