@@ -190,28 +190,29 @@ total_revenue_lower = total_revenue * 0.5
 st.write("The current total_revenue of the chosen ticker is " + str(total_revenue))
 predicted_total_revenue = st.slider("Predicted total_revenue reported by " + chosen_ticker + ".", int(total_revenue_lower), int(total_revenue_upper), int(total_revenue) )
 
-""" # totalOperatingExpenses
+# totalOperatingExpenses
 st.subheader("Total Operating Expenses")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+total_operating_expenses = df.loc[chosen_ticker].iat[6]
+total_operating_expenses_upper = total_operating_expenses * 1.5
+total_operating_expenses_lower = total_operating_expenses * 0.5
+st.write("The current total_operating_expenses of the chosen ticker is " + str(total_operating_expenses))
+predicted_total_operating_expenses = st.slider("Predicted total_operating_expenses reported by " + chosen_ticker + ".", int(total_operating_expenses_lower), int(total_operating_expenses_upper), int(total_operating_expenses) )
 
 # depreciation
 st.subheader("Depreciation")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+depreciation = df.loc[chosen_ticker].iat[6]
+depreciation_upper = depreciation * 1.5
+depreciation_lower = depreciation * 0.5
+st.write("The current depreciation of the chosen ticker is " + str(depreciation))
+predicted_cash = st.slider("Predicted depreciation reported by " + chosen_ticker + ".", int(depreciation_lower), int(depreciation_upper), int(depreciation) )
+
 # dividendsPaid
 st.subheader("Dividends")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) ) """
+dividends = df.loc[chosen_ticker].iat[6]
+dividends_upper = dividends * 1.5
+dividends_lower = dividends * 0.5
+st.write("The current dividends of the chosen ticker is " + str(dividends))
+predicted_dividends = st.slider("Predicted dividends reported by " + chosen_ticker + ".", int(dividends_lower), int(dividends_upper), int(dividends) ) 
 # Market cap? 
 st.subheader("The Resulting Market Cap")
 
