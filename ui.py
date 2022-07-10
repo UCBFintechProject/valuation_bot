@@ -71,7 +71,7 @@ print(df.loc[chosen_ticker,:])
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, 5000, 2000)
 
 
-num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+#num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 st.write('Current Share Price is' )
