@@ -1,4 +1,5 @@
 from collections import namedtuple
+from multiprocessing.dummy import current_process
 import altair as alt
 import math
 import pandas as pd
@@ -15,6 +16,22 @@ Provide input values for the following financial results for a company to predic
 
 #To-Do List 
 #Drop down for ticker - DONE
+# Cash 
+# Net receivables
+# longTerm Debt 
+# Short Long Term Debt
+# Income before Tax
+# Net Income
+# Dividends paid 
+# Other current assets 
+# Ebit 
+# totalRevenue
+# totalOperatingExpenses
+# depreciation
+# dividendsPaid
+# Market cap? 
+
+#get static values for
 # OutstandingShares
 # Depreciation
 # sellingGeneralAdministrative
@@ -69,12 +86,32 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #use to get the other data from the df dataframe 
 #df.loc[row_indexer,column_indexer] - 
 
+#Get existing values for each of the variables 
+current_cash = df.loc[chosen_ticker,7]
+st.write("The current cash of the chosen ticker is" + current_cash)
+#current_net_receivables = 
+#current_longTerm_Debt = 
+#current_Short_Long_Term_Debt = 
+# Income before Tax
+# Net Income
+# Dividends paid 
+# Other current assets 
+# Ebit 
+# totalRevenue
+# totalOperatingExpenses
+# depreciation
+# dividendsPaid
+# Market cap? 
 
-#Slider for user to choose the input for cash 
-predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, 5000, 2000)
+with st.echo(code_location='below'):
+
+    #Slider for user to choose the input for cash 
+    predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, 5000, 2000)
 
 
-#num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+
+
+    #num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 st.write('Current Share Price is' )
