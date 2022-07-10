@@ -20,6 +20,9 @@ df = df.set_index("Ticker")
 
 print(list(df.columns))
 
+index = df.index
+print(index)
+
 #list_of_tickers_df = df["Ticker"]
 
 #option = st.selectbox(
