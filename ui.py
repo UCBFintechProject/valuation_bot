@@ -59,6 +59,8 @@ chosen_ticker = st.selectbox(
 st.write('You selected:', chosen_ticker)
 
 chosen_ticker_df = df.loc[chosen_ticker,:]
+chosen_ticker_df[0] = df[].astype('int')
+
 st.dataframe(data=chosen_ticker_df, width=None, height=None)
 
 #print(df.loc[chosen_ticker,:])
@@ -122,7 +124,7 @@ net_receivables = df.loc[chosen_ticker].iat[6]
 net_receivables_upper = net_receivables * 1.5
 net_receivables_lower = net_receivables * 0.5
 st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+predicted_net_receivables = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
 
 # longTerm Debt 
 st.subheader("Long Term Debt")
@@ -130,7 +132,7 @@ long_term_debt = df.loc[chosen_ticker].iat[29]
 long_term_debt_upper = long_term_debt * 1.5
 long_term_debt_lower = long_term_debt * 0.5
 st.write("The current long_term_debt of the chosen ticker is " + str(long_term_debt))
-predicted_cash = st.slider("Predicted long_term_debt reported by " + chosen_ticker + ".", int(long_term_debt_lower), int(long_term_debt_upper), int(long_term_debt) )
+predicted_long_term_debt = st.slider("Predicted long_term_debt reported by " + chosen_ticker + ".", int(long_term_debt_lower), int(long_term_debt_upper), int(long_term_debt) )
 
 # Short Long Term Debt
 st.subheader("Short Long Term Debt")
@@ -138,7 +140,7 @@ short_long_term_debt = df.loc[chosen_ticker].iat[6]
 short_long_term_debt_upper = short_long_term_debt * 1.5
 short_long_term_debt_lower = short_long_term_debt * 0.5
 st.write("The current short_long_term_debt of the chosen ticker is " + str(short_long_term_debt))
-predicted_cash = st.slider("Predicted short_long_term_debt reported by " + chosen_ticker + ".", int(short_long_term_debt_lower), int(short_long_term_debt_upper), int(short_long_term_debt) )
+predicted_short_long_term_debt = st.slider("Predicted short_long_term_debt reported by " + chosen_ticker + ".", int(short_long_term_debt_lower), int(short_long_term_debt_upper), int(short_long_term_debt) )
 
 # Income before Tax
 st.subheader("Income Before Tax")
@@ -146,22 +148,24 @@ income_before_tax = df.loc[chosen_ticker].iat[6]
 income_before_tax_upper = income_before_tax * 1.5
 income_before_tax_lower = income_before_tax * 0.5
 st.write("The current income_before_tax of the chosen ticker is " + str(income_before_tax))
-predicted_cash = st.slider("Predicted income_before_tax reported by " + chosen_ticker + ".", int(income_before_tax_lower), int(income_before_tax_upper), int(income_before_tax) )
+predicted_income_before_tax = st.slider("Predicted income_before_tax reported by " + chosen_ticker + ".", int(income_before_tax_lower), int(income_before_tax_upper), int(income_before_tax) )
 
 # Net Income
 st.subheader("Net Income")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+net_income = df.loc[chosen_ticker].iat[6]
+net_income_upper = net_income * 1.5
+net_income_lower = net_income * 0.5
+st.write("The current net_income of the chosen ticker is " + str(net_income))
+predicted_net_income = st.slider("Predicted net_income reported by " + chosen_ticker + ".", int(net_income_lower), int(net_income_upper), int(net_income) )
+
 # Dividends paid 
 st.subheader("Dividends Paid")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+dividends_paid = df.loc[chosen_ticker].iat[6]
+dividends_paid_upper = dividends_paid * 1.5
+dividends_paid_lower = dividends_paid * 0.5
+st.write("The current dividends_paid of the chosen ticker is " + str(dividends_paid))
+predicted_dividends_paid = st.slider("Predicted dividends_paid reported by " + chosen_ticker + ".", int(dividends_paid_lower), int(dividends_paid_upper), int(dividends_paid) )
+
 # Other current assets 
 st.subheader("Other Current Assets")
 net_receivables = df.loc[chosen_ticker].iat[6]
@@ -169,21 +173,24 @@ net_receivables_upper = net_receivables * 1.5
 net_receivables_lower = net_receivables * 0.5
 st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
 predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+
 # Ebit 
 st.subheader("Ebit")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+ebit = df.loc[chosen_ticker].iat[6]
+ebit_upper = ebit * 1.5
+ebit_lower = ebit * 0.5
+st.write("The current ebit of the chosen ticker is " + str(net_receivables))
+predicted_ebit = st.slider("Predicted ebit reported by " + chosen_ticker + ".", int(ebit_lower), int(ebit_upper), int(ebit) )
+
 # totalRevenue
 st.subheader("Total Revenue")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
-# totalOperatingExpenses
+total_revenue = df.loc[chosen_ticker].iat[6]
+total_revenue_upper = total_revenue * 1.5
+total_revenue_lower = total_revenue * 0.5
+st.write("The current total_revenue of the chosen ticker is " + str(total_revenue))
+predicted_total_revenue = st.slider("Predicted total_revenue reported by " + chosen_ticker + ".", int(total_revenue_lower), int(total_revenue_upper), int(total_revenue) )
+
+""" # totalOperatingExpenses
 st.subheader("Total Operating Expenses")
 net_receivables = df.loc[chosen_ticker].iat[6]
 net_receivables_upper = net_receivables * 1.5
@@ -204,7 +211,7 @@ net_receivables = df.loc[chosen_ticker].iat[6]
 net_receivables_upper = net_receivables * 1.5
 net_receivables_lower = net_receivables * 0.5
 st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) ) """
 # Market cap? 
 st.subheader("The Resulting Market Cap")
 
