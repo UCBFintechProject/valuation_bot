@@ -41,7 +41,9 @@ print (tickers)
 #list_of_tickers_df = df["Ticker"]
 
 option = st.selectbox(
-    tickers)
+    'Which Ticker would you like to predict the share price of?',
+    (tickers))
+st.write('You selected:', option)
 
  #st.write('You selected:', option)
 
