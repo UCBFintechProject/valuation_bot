@@ -181,7 +181,7 @@ st.subheader("The Resulting Market Cap")
 st.header("Final Stock Price Prediction", anchor=None)
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 current_price = df.loc[chosen_ticker].iat[0]
-st.write('Current Share Price is' + current_price )
+st.write('Current Share Price is' + str(current_price) )
 
 #predicted_price
 st.write('The predicted value of the share price based on the selections above is ' )
