@@ -25,7 +25,8 @@ print(index)
 
 tickers = pd.DataFrame([])
 for i in index:
-    tickers.append(i)
+    name = dict(i)
+    tickers.append(name)
 
 print (tickers)
 
