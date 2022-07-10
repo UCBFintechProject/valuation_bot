@@ -23,11 +23,16 @@ print(list(df.columns))
 index = df.index
 print(index)
 
-tickers = pd.DataFrame()
+tickers = pd.DataFrame(columns=["Ticker"])
+
+#df=pd.DataFrame(columns=['a'])
 
 for i in index:
     tickers.loc[len(tickers.index)] = [i]
     #tickers.append(i)
+
+
+#df = pd.DataFrame(data)
 
 
 print (tickers)
