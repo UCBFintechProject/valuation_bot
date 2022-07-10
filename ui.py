@@ -90,7 +90,7 @@ current_cash = df.iat[0,7]
 #df.get_value(1, 7)
 #f[chosen_ticker].values[7]
 #2['col_name'].values[0]
-st.write("The current cash of the chosen ticker is" + current_cash)
+st.write("The current cash of the chosen ticker is" + str(current_cash))
 #current_net_receivables = 
 #current_longTerm_Debt = 
 #current_Short_Long_Term_Debt = 
