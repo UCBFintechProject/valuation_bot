@@ -31,26 +31,7 @@ Provide input values for the following financial results for a company to predic
 # dividendsPaid
 # Market cap? 
 
-#get static values for
-# OutstandingShares
-# Depreciation
-# sellingGeneralAdministrative
-# Interest Expense
-# incomeTaxExpense
-# costOfRevenue
-# netIncomeFromContinuingOps
-# netIncomeApplicableToCommonShares
-# investments
-# changeToLiabilities
-# totalCashflowsFromInvestingActivities
-# totalCashFromFinancingActivities
-# changeToOperatingActivities
-# repurchaseOfStock
-# effectOfExchangeRate
-# totalCashFromOperatingActivities
-# changeToAccountReceivables
-# changeToNetincome
-# capitalExpenditures
+
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
@@ -107,10 +88,45 @@ st.write("The current cash of the chosen ticker is " + str(current_cash))
  #Slider for user to choose the input for cash 
  # num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
-#with st.echo(code_location='below'):
+st.header("Default Values ", anchor=None)
+# OutstandingShares
+# Depreciation
+# sellingGeneralAdministrative
+# Interest Expense
+# incomeTaxExpense
+# costOfRevenue
+# netIncomeFromContinuingOps
+# netIncomeApplicableToCommonShares
+# investments
+# changeToLiabilities
+# totalCashflowsFromInvestingActivities
+# totalCashFromFinancingActivities
+# changeToOperatingActivities
+# repurchaseOfStock
+# effectOfExchangeRate
+# totalCashFromOperatingActivities
+# changeToAccountReceivables
+# changeToNetincome
+# capitalExpenditures
+
+st.header("Predicted Values", anchor=None)
+st.subheader("Cash")
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
+# Net receivables
+# longTerm Debt 
+# Short Long Term Debt
+# Income before Tax
+# Net Income
+# Dividends paid 
+# Other current assets 
+# Ebit 
+# totalRevenue
+# totalOperatingExpenses
+# depreciation
+# dividendsPaid
+# Market cap? 
 
-
+st.header("Final Stock Price Prediction", anchor=None)
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 st.write('Current Share Price is' )
 st.write('The predicted value of the share price based on the selections above is ' )
