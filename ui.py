@@ -18,10 +18,12 @@ data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
 df = df.set_index("Ticker")
 
-list_of_tickers_df = df["Ticker"]
+print(list(df.columns))
 
-option = st.selectbox(
-     list_of_tickers_df)
+#list_of_tickers_df = df["Ticker"]
+
+#option = st.selectbox(
+    # list_of_tickers_df)
 
  #st.write('You selected:', option)
 
