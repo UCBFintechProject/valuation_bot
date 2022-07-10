@@ -9,9 +9,31 @@ from pathlib import Path
 """
 # Welcome to the UC Berkeley Fintech Bootcamp Project 2 Group 2 Valuation Bot!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+Provide input values for the following financial results for a company to predict their share price. 
 
 """
+
+#To-Do List 
+#Drop down for ticker - DONE
+# OutstandingShares
+# Depreciation
+# sellingGeneralAdministrative
+# Interest Expense
+# incomeTaxExpense
+# costOfRevenue
+# netIncomeFromContinuingOps
+# netIncomeApplicableToCommonShares
+# investments
+# changeToLiabilities
+# totalCashflowsFromInvestingActivities
+# totalCashFromFinancingActivities
+# changeToOperatingActivities
+# repurchaseOfStock
+# effectOfExchangeRate
+# totalCashFromOperatingActivities
+# changeToAccountReceivables
+# changeToNetincome
+# capitalExpenditures
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
@@ -39,13 +61,21 @@ chosen_ticker = st.selectbox(
     (tickers))
 st.write('You selected:', chosen_ticker)
 
+print(df.loc[chosen_ticker,:])
+
 #use to get the other data from the df dataframe 
 #df.loc[row_indexer,column_indexer] - 
 
 
+#Slider for user to choose the input for cash 
+predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, 5000, 2000)
 
-predicted_cash = st.slider("Predicted cash reported by" + chosen_ticker, 1, 5000, 2000)
+
 num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+
+#INCOMPLETE - Need to add variable for the current share price of the selected stock. 
+st.write('Current Share Price is' )
+st.write('The predicted value of the share price based on the selections above is' )
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
