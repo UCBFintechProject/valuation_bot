@@ -168,11 +168,11 @@ predicted_dividends_paid = st.slider("Predicted dividends_paid reported by " + c
 
 # Other current assets 
 st.subheader("Other Current Assets")
-net_receivables = df.loc[chosen_ticker].iat[6]
-net_receivables_upper = net_receivables * 1.5
-net_receivables_lower = net_receivables * 0.5
-st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+other_current_assets = df.loc[chosen_ticker].iat[6]
+other_current_assets_upper = other_current_assets * 1.5
+other_current_assets_lower = other_current_assets * 0.5
+st.write("The current other_current_assets of the chosen ticker is " + str(other_current_assets))
+predicted_other_current_assets = st.slider("Predicted other_current_assets reported by " + chosen_ticker + ".", int(other_current_assets_lower), int(other_current_assets_upper), int(other_current_assets) )
 
 # Ebit 
 st.subheader("Ebit")
