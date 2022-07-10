@@ -59,7 +59,7 @@ chosen_ticker = st.selectbox(
 st.write('You selected:', chosen_ticker)
 
 chosen_ticker_df = df.loc[chosen_ticker,:]
-chosen_ticker_df[0] = chosen_ticker_df[0].astype('int')
+#chosen_ticker_df[0] = chosen_ticker_df[0].astype('int')
 
 st.dataframe(data=chosen_ticker_df, width=None, height=None)
 
@@ -213,6 +213,7 @@ dividends_upper = dividends * 1.5
 dividends_lower = dividends * 0.5
 st.write("The current dividends of the chosen ticker is " + str(dividends))
 predicted_dividends = st.slider("Predicted dividends reported by " + chosen_ticker + ".", int(dividends_lower), int(dividends_upper), int(dividends) ) 
+
 # Market cap? 
 st.subheader("The Resulting Market Cap")
 
