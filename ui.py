@@ -67,10 +67,7 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 #Get existing values for each of the variables 
-current_cash = df.loc[chosen_ticker].iat[6]
-current_cash_upper = current_cash * 1.5
-current_cash_lower = current_cash * 0.5
-st.write("The current cash of the chosen ticker is " + str(current_cash))
+
 #current_net_receivables = 
 #current_longTerm_Debt = 
 #current_Short_Long_Term_Debt = 
@@ -110,21 +107,46 @@ st.header("Default Values ", anchor=None)
 # capitalExpenditures
 
 st.header("Predicted Values", anchor=None)
+#Cash 
 st.subheader("Cash")
+current_cash = df.loc[chosen_ticker].iat[6]
+current_cash_upper = current_cash * 1.5
+current_cash_lower = current_cash * 0.5
+st.write("The current cash of the chosen ticker is " + str(current_cash))
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 # Net receivables
+st.subheader("Net Receivables")
+net_receivables = df.loc[chosen_ticker].iat[6]
+net_receivables_upper = net_receivables * 1.5
+net_receivables_lower = net_receivables * 0.5
+st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
+predicted_cash = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
 # longTerm Debt 
+st.subheader("Long Term Debt")
 # Short Long Term Debt
+st.subheader("Short Long Term Debt")
 # Income before Tax
+st.subheader("Income Before Taz")
 # Net Income
+st.subheader("Net Income")
 # Dividends paid 
+st.subheader("Dividends Paid")
 # Other current assets 
+st.subheader("Other Current Assets")
 # Ebit 
+st.subheader("Ebit")
 # totalRevenue
+st.subheader("Total Revenue")
 # totalOperatingExpenses
+st.subheader("Total Operating Expenses")
+
 # depreciation
+st.subheader("Depreciation")
 # dividendsPaid
+st.subheader("Dividends")
 # Market cap? 
+st.subheader("The Resulting Market Cap")
+
 
 st.header("Final Stock Price Prediction", anchor=None)
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
