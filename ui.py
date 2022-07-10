@@ -59,7 +59,7 @@ chosen_ticker = st.selectbox(
 st.write('You selected:', chosen_ticker)
 
 chosen_ticker_df = df.loc[chosen_ticker,:]
-chosen_ticker_df[0] = df[].astype('int')
+chosen_ticker_df[0] = chosen_ticker_df[0].astype('int')
 
 st.dataframe(data=chosen_ticker_df, width=None, height=None)
 
