@@ -107,15 +107,15 @@ st.write("The current cash of the chosen ticker is " + str(current_cash))
  #Slider for user to choose the input for cash 
  # #num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
-with st.echo(code_location='below'):
-    predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
+#with st.echo(code_location='below'):
+predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
 
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 st.write('Current Share Price is' )
 st.write('The predicted value of the share price based on the selections above is ' )
 
-with st.echo(code_location='below'):
+""" with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
@@ -135,4 +135,4 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
-
+ """
