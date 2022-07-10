@@ -86,6 +86,7 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
  # num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
 st.header("Default Values ", anchor=None)
+st.write("These are the default values for the existing ticker that will be incorporated into the model")
 # OutstandingShares
 # Depreciation
 # sellingGeneralAdministrative
