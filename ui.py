@@ -86,10 +86,7 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 #Get existing values for each of the variables 
-current_cash = df.iat[0,7]
-#df.get_value(1, 7)
-#f[chosen_ticker].values[7]
-#2['col_name'].values[0]
+current_cash = df.iat[0,6]
 st.write("The current cash of the chosen ticker is" + str(current_cash))
 #current_net_receivables = 
 #current_longTerm_Debt = 
@@ -105,15 +102,12 @@ st.write("The current cash of the chosen ticker is" + str(current_cash))
 # dividendsPaid
 # Market cap? 
 
+ #Slider for user to choose the input for cash 
+ # #num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+
 with st.echo(code_location='below'):
-
-    #Slider for user to choose the input for cash 
     predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, 5000, 2000)
-
-
-
-
-    #num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+    
 
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 st.write('Current Share Price is' )
