@@ -23,6 +23,13 @@ print(list(df.columns))
 index = df.index
 print(index)
 
+tickers = pd.DataFrame([])
+for i in index:
+    tickers.append(i)
+
+print (tickers)
+
+
 #list_of_tickers_df = df["Ticker"]
 
 #option = st.selectbox(
