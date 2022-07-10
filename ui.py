@@ -110,6 +110,7 @@ st.write("These are the default values for the existing ticker that will be inco
 # capitalExpenditures
 
 st.header("Predicted Values", anchor=None)
+
 #Cash 
 st.subheader("Cash")
 current_cash = df.loc[chosen_ticker].iat[6]
@@ -177,8 +178,8 @@ predicted_other_current_assets = st.slider("Predicted other_current_assets repor
 # Ebit 
 st.subheader("Ebit")
 ebit = df.loc[chosen_ticker].iat[6]
-ebit_upper = ebit * 1.5
-ebit_lower = ebit * 0.5
+ebit_upper = 1
+ebit_lower = 0
 st.write("The current ebit of the chosen ticker is " + str(net_receivables))
 predicted_ebit = st.slider("Predicted ebit reported by " + chosen_ticker + ".", int(ebit_lower), int(ebit_upper), int(ebit) )
 
@@ -216,7 +217,6 @@ predicted_dividends = st.slider("Predicted dividends reported by " + chosen_tick
 
 # Market cap? 
 st.subheader("The Resulting Market Cap")
-
 
 
 st.header("Final Stock Price Prediction", anchor=None)
