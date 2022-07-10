@@ -40,8 +40,8 @@ print (tickers)
 
 #list_of_tickers_df = df["Ticker"]
 
-#option = st.selectbox(
-    # list_of_tickers_df)
+option = st.selectbox(
+    tickers)
 
  #st.write('You selected:', option)
 
