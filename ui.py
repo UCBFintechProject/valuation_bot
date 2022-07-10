@@ -54,7 +54,7 @@ current_cash = int(df.loc[chosen_ticker].iat[6])
 current_cash_upper = current_cash * 1.5
 current_cash_lower = current_cash * 0.5
 st.write("The current cash of the chosen ticker is $" + "${:0,.2f}".format(current_cash))
-predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", "${:0,.2f}".format(current_cash_lower)), int(current_cash_upper), int(current_cash) )
+predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", "${:0,.2f}".format(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
 # Net receivables
 # st.subheader("Net Receivables")
