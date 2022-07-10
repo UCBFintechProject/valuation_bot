@@ -23,10 +23,9 @@ print(list(df.columns))
 index = df.index
 print(index)
 
-tickers = pd.DataFrame([])
+tickers = pd.Series()
 for i in index:
-    name = dict(i)
-    tickers.append(name)
+    tickers.append(i)
 
 print (tickers)
 
