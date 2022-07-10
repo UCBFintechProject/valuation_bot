@@ -50,10 +50,10 @@ st.header("Predicted Values", anchor=None)
 
 #Cash 
 st.subheader("Cash")
-current_cash = df.loc[chosen_ticker].iat[6]
+current_cash = int(df.loc[chosen_ticker].iat[6])
 current_cash_upper = current_cash * 1.5
 current_cash_lower = current_cash * 0.5
-st.write("The current cash of the chosen ticker is " + str(current_cash))
+st.write("The current cash of the chosen ticker is $" + str(current_cash))
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
 # Net receivables
@@ -182,7 +182,7 @@ st.header("Final Stock Price Prediction", anchor=None)
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 current_price = df.loc[chosen_ticker].iat[0]
 current_price = int(current_price)
-st.write('Current Share Price is' + str(current_price) )
+st.write('Current Share Price is $' + str(current_price) )
 
 #predicted_price
 st.write('The predicted value of the share price based on the selections above is ' )
