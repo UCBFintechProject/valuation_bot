@@ -61,7 +61,10 @@ chosen_ticker = st.selectbox(
     (tickers))
 st.write('You selected:', chosen_ticker)
 
-print(df.loc[chosen_ticker,:])
+chosen_ticker_df = df.loc[chosen_ticker,:]
+st.dataframe(data=chosen_ticker_df, width=None, height=None)
+
+#print(df.loc[chosen_ticker,:])
 
 #use to get the other data from the df dataframe 
 #df.loc[row_indexer,column_indexer] - 
