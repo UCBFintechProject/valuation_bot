@@ -86,7 +86,8 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 #Get existing values for each of the variables 
-current_cash = df.get_value(1, 7)
+current_cash = df.iat[0,7]
+#df.get_value(1, 7)
 #f[chosen_ticker].values[7]
 #2['col_name'].values[0]
 st.write("The current cash of the chosen ticker is" + current_cash)
