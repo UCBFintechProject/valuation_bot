@@ -14,25 +14,6 @@ Provide input values for the following financial results for a company to predic
 
 """
 
-#To-Do List 
-#Drop down for ticker - DONE
-# Cash 
-# Net receivables
-# longTerm Debt 
-# Short Long Term Debt
-# Income before Tax
-# Net Income
-# Dividends paid 
-# Other current assets 
-# Ebit 
-# totalRevenue
-# totalOperatingExpenses
-# depreciation
-# dividendsPaid
-# Market cap? 
-
-
-
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
@@ -59,55 +40,11 @@ chosen_ticker = st.selectbox(
 st.write('You selected:', chosen_ticker)
 
 chosen_ticker_df = df.loc[chosen_ticker,:]
-#chosen_ticker_df[0] = chosen_ticker_df[0].astype('int')
-
 st.dataframe(data=chosen_ticker_df, width=None, height=None)
 
-#print(df.loc[chosen_ticker,:])
 
 #use to get the other data from the df dataframe 
 #df.loc[row_indexer,column_indexer] - 
-
-#Get existing values for each of the variables 
-
-#current_net_receivables = 
-#current_longTerm_Debt = 
-#current_Short_Long_Term_Debt = 
-# Income before Tax
-# Net Income
-# Dividends paid 
-# Other current assets 
-# Ebit 
-# totalRevenue
-# totalOperatingExpenses
-# depreciation
-# dividendsPaid
-# Market cap? 
-
- #Slider for user to choose the input for cash 
- # num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
-
-st.header("Default Values ", anchor=None)
-st.write("These are the default values for the existing ticker that will be incorporated into the model")
-# OutstandingShares
-# Depreciation
-# sellingGeneralAdministrative
-# Interest Expense
-# incomeTaxExpense
-# costOfRevenue
-# netIncomeFromContinuingOps
-# netIncomeApplicableToCommonShares
-# investments
-# changeToLiabilities
-# totalCashflowsFromInvestingActivities
-# totalCashFromFinancingActivities
-# changeToOperatingActivities
-# repurchaseOfStock
-# effectOfExchangeRate
-# totalCashFromOperatingActivities
-# changeToAccountReceivables
-# changeToNetincome
-# capitalExpenditures
 
 st.header("Predicted Values", anchor=None)
 
@@ -218,6 +155,28 @@ predicted_cash = st.slider("Predicted depreciation reported by " + chosen_ticker
 # Market cap? 
 st.subheader("The Resulting Market Cap")
 
+
+# st.header("Default Values ", anchor=None)
+# st.write("These are the default values for the existing ticker that will be incorporated into the model")
+# # OutstandingShares
+# # Depreciation
+# # sellingGeneralAdministrative
+# # Interest Expense
+# # incomeTaxExpense
+# # costOfRevenue
+# # netIncomeFromContinuingOps
+# # netIncomeApplicableToCommonShares
+# # investments
+# # changeToLiabilities
+# # totalCashflowsFromInvestingActivities
+# # totalCashFromFinancingActivities
+# # changeToOperatingActivities
+# # repurchaseOfStock
+# # effectOfExchangeRate
+# # totalCashFromOperatingActivities
+# # changeToAccountReceivables
+# # changeToNetincome
+# # capitalExpenditures
 
 st.header("Final Stock Price Prediction", anchor=None)
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
