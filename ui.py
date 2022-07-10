@@ -13,39 +13,39 @@ Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
 
 """
 
-
+#Imports Data from Data Folder and puts all the data into a dataframe called df. 
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
 df = df.set_index("Ticker")
 
+#Prints the columns of the df Dataframe 
 print(list(df.columns))
 
+#Index gets the index of the df and prints the index 
 index = df.index
 print(index)
 
+#Creates a new DF 
 tickers = pd.DataFrame(columns=["Ticker"])
 
-#df=pd.DataFrame(columns=['a'])
-
+#For loop to add the ticker names into the ticker datafrmae 
 for i in index:
     tickers.loc[len(tickers.index)] = [i]
-    #tickers.append(i)
-
-
-#df = pd.DataFrame(data)
-
-
 print (tickers)
 
-
-#list_of_tickers_df = df["Ticker"]
-
-option = st.selectbox(
+#Drop down box to select the ticker the user would like to predict. 
+chosen_ticker = st.selectbox(
     'Which Ticker would you like to predict the share price of?',
     (tickers))
-st.write('You selected:', option)
+st.write('You selected:', chosen_ticker)
 
- #st.write('You selected:', option)
+#use to get the other data from the df dataframe 
+#df.loc[row_indexer,column_indexer] - 
+
+
+
+predicted_cash = st.slider("Predicted cash reported by" + chosen_ticker, 1, 5000, 2000)
+num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
