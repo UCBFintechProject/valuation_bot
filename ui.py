@@ -108,7 +108,7 @@ st.write("The current cash of the chosen ticker is " + str(current_cash))
  # #num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
 with st.echo(code_location='below'):
-    predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, current_cash_lower, current_cash_upper )
+    predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker + ".", 1, int(current_cash_lower), int(current_cash_upper) )
 
 
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
