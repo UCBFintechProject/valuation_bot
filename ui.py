@@ -56,14 +56,11 @@ Provide input values for the following financial results for a company to predic
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
 df = df.set_index("Ticker")
-
 #Prints the columns of the df Dataframe 
 print(list(df.columns))
-
 #Index gets the index of the df and prints the index 
 index = df.index
 print(index)
-
 #Creates a new DF 
 tickers = pd.DataFrame(columns=["Ticker"])
 
@@ -72,6 +69,8 @@ for i in index:
     tickers.loc[len(tickers.index)] = [i]
 print (tickers)
 
+
+#BEGIN UI IN STREAMLIT 
 #Drop down box to select the ticker the user would like to predict. 
 chosen_ticker = st.selectbox(
     'Which Ticker would you like to predict the share price of?',
@@ -87,7 +86,8 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 #Get existing values for each of the variables 
-current_cash = df.loc[chosen_ticker,7]
+current_cash = df[chosen_ticker].values[7]
+#2['col_name'].values[0]
 st.write("The current cash of the chosen ticker is" + current_cash)
 #current_net_receivables = 
 #current_longTerm_Debt = 
