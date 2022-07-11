@@ -10,7 +10,7 @@ from pathlib import Path
 
 st.header("Machine Learning Market Cap and Stock Price Prediction Bot", anchor=None)
 st.subheader("UC Berkeley Fintech Course Group 2 Project 2!")
-st.caption("Provide input values for the following financial results for a company to predict their share price. ", unsafe_allow_html=False)
+st.caption("The Machine Learning Bot is trained on 10 years of historical financial data from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future stock price and market cap.", unsafe_allow_html=False)
 
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
