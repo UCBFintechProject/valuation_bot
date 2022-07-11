@@ -9,8 +9,8 @@ from pathlib import Path
 
 
 st.header("Machine Learning Market Cap and Stock Price Prediction Bot", anchor=None)
-st.subheader("UC Berkeley Fintech Course Group 2 Project 2!")
-st.caption("The Machine Learning Bot is trained on 10 years of historical financial data from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future stock price and market cap.", unsafe_allow_html=False)
+st.subheader("UC Berkeley Fintech Course Group 2 Project 2")
+st.caption("This Bot is a linear regression trained ML model. It was trained on 10 years of historical financial data from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future stock price and market cap.", unsafe_allow_html=False)
 
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
@@ -34,7 +34,7 @@ print (tickers)
 #BEGIN UI IN STREAMLIT 
 #Drop down box to select the ticker the user would like to predict. 
 chosen_ticker = st.selectbox(
-    'Which Ticker would you like to predict the share price of?',
+    'Which ticker would you like to predict the share price of?',
     (tickers))
 st.write('You selected:', chosen_ticker)
 
@@ -46,7 +46,7 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 st.header("Predicted Values", anchor=None)
-st.caption("These are user input values for the ML model that is trained on 10 years of historical financial reports", unsafe_allow_html=False)
+st.caption("Use the sliders below to predict the updated share price based on changes in the companies financial reporting.", unsafe_allow_html=False)
 
 
 
@@ -58,15 +58,15 @@ current_cash_lower = current_cash * 0.5
 st.write("The current cash of the chosen ticker is " + "${:0,.0f}".format(current_cash))
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker , int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
-# Net receivables
-# st.subheader("Net Receivables")
-# net_receivables = df.loc[chosen_ticker].iat[6]
-# net_receivables_upper = net_receivables * 1.5
-# net_receivables_lower = net_receivables * 0.5
-# st.write("The current net receivables of the chosen ticker is " + str(net_receivables))
-# predicted_net_receivables = st.slider("Predicted net_receivables reported by " + chosen_ticker + ".", int(net_receivables_lower), int(net_receivables_upper), int(net_receivables) )
+# Profit Margin
+st.subheader("Profit Margin")
+profit_margin = df.loc[chosen_ticker].iat[5]
+profit_margin_upper = profit_margin * 1.5
+profit_margin_lower = profit_margin * 0.5
+st.write("The current net receivables of the chosen ticker is " + "${:0,.0f}".format(profit_margin))
+predicted_profit_margin = st.slider("Predicted profit margin reported by " + chosen_ticker + ".", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
 
-# longTerm Debt 
+# Total Debt 
 # st.subheader("Long Term Debt")
 # long_term_debt = df.loc[chosen_ticker].iat[29]
 # long_term_debt_upper = long_term_debt * 1.5
@@ -160,25 +160,7 @@ st.subheader("The Resulting Market Cap")
 
 # st.header("Default Values ", anchor=None)
 # st.write("These are the default values for the existing ticker that will be incorporated into the model")
-# # OutstandingShares
-# # Depreciation
-# # sellingGeneralAdministrative
-# # Interest Expense
-# # incomeTaxExpense
-# # costOfRevenue
-# # netIncomeFromContinuingOps
-# # netIncomeApplicableToCommonShares
-# # investments
-# # changeToLiabilities
-# # totalCashflowsFromInvestingActivities
-# # totalCashFromFinancingActivities
-# # changeToOperatingActivities
-# # repurchaseOfStock
-# # effectOfExchangeRate
-# # totalCashFromOperatingActivities
-# # changeToAccountReceivables
-# # changeToNetincome
-# # capitalExpenditures
+
 
 st.header("Final Stock Price Prediction", anchor=None)
 st.caption("Based on the predicted financial results above, this is the predicted price of the stock", unsafe_allow_html=False)
