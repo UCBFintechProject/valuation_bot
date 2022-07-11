@@ -8,8 +8,8 @@ import streamlit as st
 from pathlib import Path
 
 
-st.header("Group 2 Project 2!", anchor=None)
-st.subheader("Stock Machine Learning Valuation Bot")
+st.header("Stock Machine Learning Valuation Bot", anchor=None)
+st.subheader("UC Berkeley Fintech Course Group 2 Project 2!")
 st.caption("Provide input values for the following financial results for a company to predict their share price. ", unsafe_allow_html=False)
 
 
