@@ -8,11 +8,16 @@ import streamlit as st
 from pathlib import Path
 
 """
-# Welcome to the UC Berkeley Fintech Bootcamp Project 2 Group 2 Valuation Bot!
-
-Provide input values for the following financial results for a company to predict their share price. 
+#UC Berkeley Fintech Bootcamp Project 2 Group 2 Valuation Bot!
 
 """
+
+
+
+st.header("Stock Machine Learning Valuation Bot", anchor=None)
+st.caption("Provide input values for the following financial results for a company to predict their share price. ", unsafe_allow_html=False)
+
+
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
 data = Path("data/FS_sp500_merged_cleaned_stats.csv")
