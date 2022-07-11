@@ -7,16 +7,10 @@ import streamlit as st
 
 from pathlib import Path
 
-"""
-#UC Berkeley Fintech Bootcamp Project 2 Group 2 Valuation Bot!
 
-"""
-
-
-
-st.header("Stock Machine Learning Valuation Bot", anchor=None)
+st.header("UC Berkeley Fintech Bootcamp Project 2 Group 2 Valuation Bot!", anchor=None)
+st.subheader("Stock Machine Learning Valuation Bot")
 st.caption("Provide input values for the following financial results for a company to predict their share price. ", unsafe_allow_html=False)
-
 
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
