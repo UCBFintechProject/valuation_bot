@@ -47,6 +47,9 @@ st.dataframe(data=chosen_ticker_df, width=None, height=None)
 #df.loc[row_indexer,column_indexer] - 
 
 st.header("Predicted Values", anchor=None)
+st.caption("These are user input values for the ML model that is trained on 10 years of historical financial reports", unsafe_allow_html=False)
+
+
 
 #Cash 
 st.subheader("Cash")
@@ -179,6 +182,9 @@ st.subheader("The Resulting Market Cap")
 # # capitalExpenditures
 
 st.header("Final Stock Price Prediction", anchor=None)
+st.caption("Based on the predicted financial results above, this is the predicted price of the stock", unsafe_allow_html=False)
+
+
 #INCOMPLETE - Need to add variable for the current share price of the selected stock. 
 current_price = df.loc[chosen_ticker].iat[0]
 current_price = int(current_price)
