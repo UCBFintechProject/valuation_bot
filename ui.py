@@ -63,7 +63,7 @@ st.subheader("Profit Margin")
 profit_margin = df.loc[chosen_ticker].iat[5]
 profit_margin_upper = profit_margin * 1.5
 profit_margin_lower = profit_margin * 0.5
-st.write("The current net receivables of the chosen ticker is " + "{:. 0%}".format(profit_margin))
+st.write("The current net receivables of the chosen ticker is " + "{:.0%}".format(profit_margin))
 predicted_profit_margin = st.slider("Predicted profit margin reported by " + chosen_ticker + ".", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
 
 # Total Debt 
