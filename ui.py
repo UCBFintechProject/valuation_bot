@@ -6,12 +6,14 @@ import pandas as pd
 import streamlit as st
 import pickle
 
+from pickle import load
+from math import log, floor
 from pathlib import Path
 from ui_backend import * 
 
-st.header("Machine Learning Market Cap and Stock Price Prediction Bot", anchor=None)
+st.header("Machine Learning Market Cap Prediction Bot", anchor=None)
 st.subheader("UC Berkeley Fintech Course Group 2 Project 2")
-st.caption("This Bot is a linear regression trained ML model. It was trained on 10 years of historical financial data from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future stock price and market cap.", unsafe_allow_html=False)
+st.caption("This Bot is a Random Forest Regressor trained ML model. Its trained on the latest financial reports from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future market cap.", unsafe_allow_html=False)
 
 @st.cache(allow_output_mutation=True)
 def start(): 
@@ -43,7 +45,7 @@ tickers, df=start()
 # df = start_df_func()
 
 chosen_ticker = st.selectbox(
-    'Which ticker would you like to predict the share price of?',
+    'Which ticker would you like to predict the market cap of?',
     (tickers))
 st.write('You selected:', chosen_ticker)
 
@@ -58,34 +60,34 @@ chosen_ticker_array = chosen_ticker_df.to_numpy()
 #df.loc[row_indexer,column_indexer] - 
 
 st.header("Predicted Values", anchor=None)
-st.caption("Use the sliders below to predict the updated share price based on changes in the companies financial reporting.", unsafe_allow_html=False)
+st.caption("Use the sliders below to predict the market cap based on changes in the companies financial reporting.", unsafe_allow_html=False)
 
 #Phoebe to add DF to list for the selected ticker 
+
+# Profit Margin
+st.subheader("Profit Margin")
+profit_margin = chosen_ticker_array[5]
+profit_margin_upper = profit_margin * 5
+profit_margin_lower = profit_margin * 0.1
+st.write("The current profit margin of ticker " + chosen_ticker + " is " + "{:.0%}".format((profit_margin/100)))
+predicted_profit_margin = st.slider("Predicted profit margin (percentage) " + chosen_ticker + ".", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
 
 
 #Cash 
 st.subheader("Cash")
 # current_cash = df.loc[chosen_ticker].iat[6]
 current_cash = chosen_ticker_array[6]
-current_cash_upper = current_cash * 1.5
-current_cash_lower = current_cash * 0.5
+current_cash_upper = current_cash * 3
+current_cash_lower = current_cash * 0.1
 st.write("The current cash of the chosen ticker is " + "${:0,.0f}".format(current_cash))
 predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker , int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
-# Profit Margin
-st.subheader("Profit Margin")
-profit_margin = chosen_ticker_array[5]
-profit_margin_upper = profit_margin * 1.5
-profit_margin_lower = profit_margin * 0.5
-st.write("The current net receivables of the chosen ticker is " + "{:.0%}".format((profit_margin/100)))
-predicted_profit_margin = st.slider("Predicted profit margin (percentage) " + chosen_ticker + ".", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
-
-# # Total Debt 
+# Total Debt 
 # st.subheader("Long Term Debt")
 # long_term_debt = chosen_ticker_array[29]
 # long_term_debt_upper = long_term_debt * 1.5
 # long_term_debt_lower = long_term_debt * 0.5
-# st.write("The current long_term_debt of the chosen ticker is " + str(long_term_debt))
+# st.write("The current long_term_debt of the chosen ticker is " + "${:0,.0f}".format(long_term_debt))
 # predicted_long_term_debt = st.slider("Predicted long_term_debt reported by " + chosen_ticker + ".", int(long_term_debt_lower), int(long_term_debt_upper), int(long_term_debt) )
 
 # # Short Long Term Debt
@@ -190,19 +192,39 @@ predicted_profit_margin = st.slider("Predicted profit margin (percentage) " + ch
 
 
 
-# make sure to Scale data before calling the model 
 # model = pickle.load(open('model_reg.pkl','rb'))
+#model = pickle.load(open('model_reg.pkl','rb'))
 
-# with open('model/nn_model2.', 'r') as f: 
-#     model=pickle.load(f)
+# make sure to Scale data before calling the model 
 
-
-if st.button('Predict'): 
-    prediction = model.predict([chosen_ticker_array])
-    st.write('The predicted market cap of' + chosen_ticker + 'based on the selections above is ' + prediction )
-
+predict_list = list(chosen_ticker_array)
+predict_list.pop(0)
+# = chosen_ticker_array.delete([0])
 
 
+with open('model/RFR_model.sav', 'r') as f: 
+    model = pickle.load(open('model/RFR_model.pkl', 'rb'))
 
-#Phoebe to make array with values 
-#RecentPrice,Beta,AnnualDividendRate,ROE(%),ROA(%),ProfitMargin(%),TotalCash,TotalDebt,OutstandingShares,intangibleAssets,capitalSurplus,totalLiab,totalStockholderEquity,otherCurrentLiab,totalAssets,commonStock,otherCurrentAssets,retainedEarnings,otherLiab,goodWill,treasuryStock,otherAssets,cash,totalCurrentLiabilities,otherStockholderEquity,propertyPlantEquipment,totalCurrentAssets,longTermInvestments,netTangibleAssets,netReceivables,longTermDebt,inventory,accountsPayable,shortLongTermDebt,incomeBeforeTax,netIncome,sellingGeneralAdministrative,grossProfit,ebit,operatingIncome,interestExpense,incomeTaxExpense,totalRevenue,totalOperatingExpenses,costOfRevenue,totalOtherIncomeExpenseNet,netIncomeFromContinuingOps,netIncomeApplicableToCommonShares,investments,changeToLiabilities,totalCashflowsFromInvestingActivities,totalCashFromFinancingActivities,changeToOperatingActivities,issuanceOfStock,netIncome,changeInCash,repurchaseOfStock,effectOfExchangeRate,totalCashFromOperatingActivities,depreciation,otherCashflowsFromInvestingActivities,dividendsPaid,changeToAccountReceivables,changeToNetincome,capitalExpenditures,netBorrowings,otherCashflowsFromFinancingActivities,MarketCap
+def human_format(number):
+    units = ['', 'K', 'M', 'G', 'T', 'P']
+    k = 1000.0
+    magnitude = int(floor(log(number, k)))
+    return '%.2f%s' % (number / k**magnitude, units[magnitude])
+
+
+
+if st.button('Predict'):
+    #using to test 
+    print(predict_list)
+    predict_list[5] = predicted_profit_margin
+    predict_list[6] = predicted_cash
+    predict_list_scaled = predict_list
+    scaler = load(open('model/RFR_scaler.pkl', 'rb'))
+    predict_list_scaled = scaler.transform([predict_list])
+    #predict_list_scaled.reshape(1, -1)
+    prediction = model.predict(predict_list_scaled)
+    prediction = prediction.astype(int)
+    #print(prediction)
+    prediction_int = prediction[0]
+    st.write('The predicted market cap of ' + str(chosen_ticker) + ' based on the selections above is ' + str(prediction_int) )
+
