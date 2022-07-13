@@ -12,24 +12,27 @@ st.header("Machine Learning Market Cap and Stock Price Prediction Bot", anchor=N
 st.subheader("UC Berkeley Fintech Course Group 2 Project 2")
 st.caption("This Bot is a linear regression trained ML model. It was trained on 10 years of historical financial data from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future stock price and market cap.", unsafe_allow_html=False)
 
+@st.cache(allow_output_mutation=True)
+def start(): 
+    #Imports Data from Data Folder and puts all the data into a dataframe called df. 
+    data = Path("data/FS_sp500_merged_cleaned_stats.csv")
+    df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
+    df = df.set_index("Ticker")
+    #Prints the columns of the df Dataframe 
+    #print(list(df.columns))
+    #Index gets the index of the df and prints the index 
+    index = df.index
+    #print(index)
+    #Creates a new DF 
+    tickers = pd.DataFrame(columns=["Ticker"])
 
-#Imports Data from Data Folder and puts all the data into a dataframe called df. 
-data = Path("data/FS_sp500_merged_cleaned_stats.csv")
-df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
-df = df.set_index("Ticker")
-#Prints the columns of the df Dataframe 
-#print(list(df.columns))
-#Index gets the index of the df and prints the index 
-index = df.index
-#print(index)
-#Creates a new DF 
-tickers = pd.DataFrame(columns=["Ticker"])
+    #For loop to add the ticker names into the ticker datafrmae 
+    for i in index:
+        tickers.loc[len(tickers.index)] = [i]
+    # print (tickers)
+    return tickers, df
 
-#For loop to add the ticker names into the ticker datafrmae 
-for i in index:
-    tickers.loc[len(tickers.index)] = [i]
-print (tickers)
-
+tickers, df=start()
 
 #BEGIN UI IN STREAMLIT 
 #Drop down box to select the ticker the user would like to predict. 
