@@ -21,7 +21,23 @@ class VBot:
         list_ticker = sorted(list(set(df['Ticker'].to_list())))
 
         return list_ticker
-   
+
+    def get_price_data(self, etf_list=[], OnlyRecent=False):
+        self.etf_list = etf_list
+        url_price = self.url+'/data_origin/FS_'+self.etfname+'_Value.json'
+        combined_price = pd.read_json(url_price)
+        df_price = pd.DataFrame({'Recent_price': []})
+
+        if OnlyRecent == True:
+            for symbol in self.etf_list:
+                temp_df = combined_price[combined_price.Ticker.str.contains(symbol)].copy()
+                res = temp_df.loc[temp_df.index[-1], 'Adj Close']
+                df_price.loc[symbol, 'Recent_price'] =res
+            return df_price
+        else:
+            df_price = combined_price.copy()
+            return df_price
+       
     def get_stats(self, preprocessing = False):
         url_stats = self.url+'/data_origin/FS_'+self.etfname+'_stats.json'
         df = pd.read_json(url_stats)
@@ -54,7 +70,9 @@ class VBot:
             df_pm = self.get_PM() # Profit Margin
             df_cash = self.get_Cash() # Total Cash
             df_debt = self.get_Debt() # Total Debt
+            ### Added
             df_outstanding = self.get_Out() # Get outstanding shares needed to calculate MCap
+            # df_cap = self.get_CAP() # Market Cap
             
             # Concat mulit dataframe
             df = pd.concat([df_beta, df_divr, df_roe, df_roa, df_pm, df_cash, df_debt, df_outstanding], axis=1)
@@ -155,6 +173,8 @@ class VBot:
         df_cap['marketCap'] = df_cap.loc[:, 'Recent']
         df_cap = df_cap.drop(['Attribute', 'Recent'], axis=1)
         df_cap = df_cap.set_index('Ticker')
+        # df_outstanding = self.get_Out() # Get outstanding shares needed to calculate MCap
+        # df_cap['MarketCap'] = get_Out()
         df_cap = df_cap.fillna(value=np.nan)
         for ticker in df_cap.index:
             value = df_cap.loc[ticker, 'marketCap']
@@ -265,6 +285,42 @@ class VBot:
             
         return df_outstanding.astype(float)
 
+##########################################################    
+    def get_TA(self):
+        df = self.get_balsheets()
+        df_ta = df[df.Breakdown == 'totalAssets'].copy()
+        df_ta['TotalAssets'] = df_ta.loc[:, 'Recent']
+        df_ta = df_ta.drop(['Breakdown', 'Recent'], axis=1)
+        df_ta = df_ta.set_index('Ticker')
+
+        return df_ta
+    
+    def get_TR(self):
+        df = self.get_income()
+        df_tr = df[df.Breakdown == 'totalRevenue'].copy()
+        df_tr['TotalRevenue'] = df_tr.loc[:, 'Recent']
+        df_tr = df_tr.drop(['Breakdown', 'Recent'], axis=1)
+        df_tr = df_tr.set_index('Ticker')
+
+        return df_tr
+    
+    def get_DIV(self):
+        df = self.get_flow()
+        df_div = df[df.Breakdown == 'dividendsPaid'].copy()
+        df_div['DividendsPaid'] = df_div.loc[:, 'Recent']
+        df_div = df_div.drop(['Breakdown', 'Recent'], axis=1)
+        df_div = df_div.set_index('Ticker')
+
+        return df_div
+
+    def get_ISS(self):
+        df = self.get_flow()
+        df_iss = df[df.Breakdown == 'issuanceOfStock'].copy()
+        df_iss['Issuance'] = df_iss.loc[:, 'Recent']
+        df_iss = df_iss.drop(['Breakdown', 'Recent'], axis=1)
+        df_iss = df_iss.set_index('Ticker')
+
+        return df_iss
 
     ############################## Callable per element (Ticker or list)
   
