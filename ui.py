@@ -18,10 +18,10 @@ data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
 df = df.set_index("Ticker")
 #Prints the columns of the df Dataframe 
-print(list(df.columns))
+#print(list(df.columns))
 #Index gets the index of the df and prints the index 
 index = df.index
-print(index)
+#print(index)
 #Creates a new DF 
 tickers = pd.DataFrame(columns=["Ticker"])
 
