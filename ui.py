@@ -14,7 +14,7 @@ st.caption("This Bot is a linear regression trained ML model. It was trained on 
 
 
 #Imports Data from Data Folder and puts all the data into a dataframe called df. 
-data = Path("data/sp_500_merged_wsectors_data.csv")
+data = Path("data/FS_sp500_merged_cleaned_stats.csv")
 df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
 df = df.set_index("Ticker")
 #Prints the columns of the df Dataframe 
