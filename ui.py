@@ -20,13 +20,14 @@ def start():
     #Imports Data from Data Folder and puts all the data into a dataframe called df. 
     data = Path("data/FS_sp500_merged_cleaned_stats.csv")
     df = pd.read_csv(data, delimiter=",").rename(columns={"Unnamed: 0":"Ticker"})
-    
     df = df.set_index("Ticker")
-    #Prints the columns of the df Dataframe 
-    #print(list(df.columns))
+    #df = df.drop(columns=["0"], inplace=True)
+    #df.head()
+
     #Index gets the index of the df and prints the index 
     index = df.index
-    #print(index)
+    #index = pd.DataFrame(columns=["Ticker"])
+
     #Creates a new DF 
     tickers = pd.DataFrame(columns=["Ticker"])
 
@@ -202,14 +203,14 @@ predict_list.pop(0)
 # = chosen_ticker_array.delete([0])
 
 
-with open('model/RFR_model.sav', 'r') as f: 
-    model = pickle.load(open('model/RFR_model.pkl', 'rb'))
+#with open('model/RFR_model.sav', 'r') as f: 
+model = load(open('model/RFR_model_nosect.pkl', 'rb'))
 
-def human_format(number):
-    units = ['', 'K', 'M', 'G', 'T', 'P']
-    k = 1000.0
-    magnitude = int(floor(log(number, k)))
-    return '%.2f%s' % (number / k**magnitude, units[magnitude])
+# def human_format(number):
+#     units = ['', 'K', 'M', 'G', 'T', 'P']
+#     k = 1000.0
+#     magnitude = int(floor(log(number, k)))
+#     return '%.2f%s' % (number / k**magnitude, units[magnitude])
 
 
 
@@ -219,12 +220,10 @@ if st.button('Predict'):
     predict_list[5] = predicted_profit_margin
     predict_list[6] = predicted_cash
     predict_list_scaled = predict_list
-    scaler = load(open('model/RFR_scaler.pkl', 'rb'))
+    scaler = load(open('model/RFR_scaler_nosect.pkl', 'rb'))
     predict_list_scaled = scaler.transform([predict_list])
-    #predict_list_scaled.reshape(1, -1)
     prediction = model.predict(predict_list_scaled)
     prediction = prediction.astype(int)
-    #print(prediction)
     prediction_int = prediction[0]
     st.write('The predicted market cap of ' + str(chosen_ticker) + ' based on the selections above is ' + str(prediction_int) )
 
