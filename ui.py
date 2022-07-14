@@ -204,7 +204,7 @@ predict_list.pop(0)
 
 
 #with open('model/RFR_model.sav', 'r') as f: 
-model = load(open('model/RFR_model_nosect.pkl', 'rb'))
+model = pickle.load(open('model/RFR_model_nosect.pkl', 'rb'))
 
 # def human_format(number):
 #     units = ['', 'K', 'M', 'G', 'T', 'P']
