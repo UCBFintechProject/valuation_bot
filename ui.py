@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 import pickle 
 
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 from pickle import load
 from math import log, floor
 from pathlib import Path
