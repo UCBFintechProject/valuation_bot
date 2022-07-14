@@ -70,7 +70,7 @@ profit_margin = chosen_ticker_array[5]
 profit_margin_upper = profit_margin * 5
 profit_margin_lower = profit_margin * 0.1
 st.write("The current profit margin of ticker " + chosen_ticker + " is " + "{:.0%}".format((profit_margin/100)))
-predicted_profit_margin = st.slider("Predicted profit margin (percentage) " + chosen_ticker + ".", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
+predicted_profit_margin = st.slider("Use the slider to choose a profit margin value for prediction of " + chosen_ticker + " market cap.", int(profit_margin_lower), int(profit_margin_upper), int(profit_margin) )
 
 
 #Cash 
@@ -79,8 +79,8 @@ st.subheader("Cash")
 current_cash = chosen_ticker_array[6]
 current_cash_upper = current_cash * 3
 current_cash_lower = current_cash * 0.1
-st.write("The current cash of the chosen ticker is " + "${:0,.0f}".format(current_cash))
-predicted_cash = st.slider("Predicted cash reported by " + chosen_ticker , int(current_cash_lower), int(current_cash_upper), int(current_cash) )
+st.write("The current cash of ticker " + chosen_ticker + " is "  + "${:0,.0f}".format(current_cash))
+predicted_cash = st.slider("Use the slider to choose a cash value for prediction of " + chosen_ticker + " market cap.", int(current_cash_lower), int(current_cash_upper), int(current_cash) )
 
 # Total Debt 
 # st.subheader("Long Term Debt")
