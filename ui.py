@@ -9,7 +9,7 @@ import pickle
 from pickle import load
 from math import log, floor
 from pathlib import Path
-from ui_backend import * 
+#from ui_backend import * 
 
 st.header("Machine Learning Market Cap Prediction Bot", anchor=None)
 st.subheader("UC Berkeley Fintech Course Group 2 Project 2")
