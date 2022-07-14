@@ -10,13 +10,19 @@ import pickle
 from pickle import load
 from math import log, floor
 from pathlib import Path
+
+from ui_backend import chosen_ticker_func
 #from ui_backend import * 
 
 st.header("Machine Learning Market Cap Prediction Bot", anchor=None)
 st.subheader("UC Berkeley Fintech Course Group 2 Project 2")
 st.caption("This Bot is a Random Forest Regressor trained ML model. Its trained on the latest financial reports from the S&P 500. It allows you to provide potential financial inputs for a specified ticker and predict a future market cap.", unsafe_allow_html=False)
 
-@st.cache(allow_output_mutation=True)
+
+# @st.cache(allow_output_mutation=True)
+
+# @st.cache(hash_funcs={FooType: hash_foo_type})
+@st.experimental_memo(ttl=600)
 def start(): 
     #Imports Data from Data Folder and puts all the data into a dataframe called df. 
     data = Path("data/FS_sp500_merged_cleaned_stats.csv")
@@ -49,7 +55,9 @@ tickers, df=start()
 chosen_ticker = st.selectbox(
     'Which ticker would you like to predict the market cap of?',
     (tickers))
+
 st.write('You selected:', chosen_ticker)
+
 
 chosen_ticker_df = df.loc[chosen_ticker,:]
 st.dataframe(data=chosen_ticker_df, width=None, height=None)
