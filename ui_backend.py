@@ -8,6 +8,11 @@ import pickle
 
 from pathlib import Path
 
+from sqlalchemy import create_engine
+
+engine = create_engine('sqlite://', echo=False)
+
+
 @st.cache(suppress_st_warning=True)
 def start_tickers_func(): 
     #Imports Data from Data Folder and puts all the data into a dataframe called df. 
