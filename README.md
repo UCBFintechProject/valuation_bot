@@ -32,10 +32,6 @@ pathlib
 sklearn.
 pickle 
 
-import warnings
-# Custom classes for interfacing with this dataset
-from utils.financials import VBot
-from utils.trades import VBotTrade
 
 
 ## Contributors
