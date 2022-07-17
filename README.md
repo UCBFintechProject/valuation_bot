@@ -46,6 +46,20 @@ Harry Oestreicher
 Javier Leon
 
 
+![Data](https://user-images.githubusercontent.com/101846233/179379873-9471d465-12aa-4f86-b702-a0214e47fd99.png)
+
+
+![Regressor1](https://user-images.githubusercontent.com/101846233/179379844-ab616b11-d825-4941-8116-34bcf690c445.png)
+
+
+
 ![Regressor_Estimators](https://user-images.githubusercontent.com/101846233/179379779-fbe88eb2-32e7-498f-92f6-570eeeb01f20.png)
+
+
+
+![Regressor_Pred](https://user-images.githubusercontent.com/101846233/179379852-8b9f2fed-5eaf-41c2-be90-0d4dce9e3990.png)
+
+
+![Regressor_chart](https://user-images.githubusercontent.com/101846233/179379862-3fed4ec0-c601-4153-a550-2ce851fd3675.png)
 
 
