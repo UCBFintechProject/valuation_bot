@@ -44,3 +44,8 @@ Abhi Banerjee
 Phoebe Gunter
 Harry Oestreicher
 Javier Leon
+
+
+![Regressor_Estimators](https://user-images.githubusercontent.com/101846233/179379779-fbe88eb2-32e7-498f-92f6-570eeeb01f20.png)
+
+
