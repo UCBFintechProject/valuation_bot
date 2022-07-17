@@ -1,0 +1,74 @@
+.
+├── 1_data_retrieval.ipynb
+├── 1_data_retrieval_QReports.ipynb
+├── 1_data_retrieval_TS.ipynb
+├── 1_data_retrieval_TS_v2.ipynb
+├── 1_data_splitter_1_create_files.ipynb
+├── 1_data_splitter_2_feature_engineering.ipynb
+├── 2_analysis_LR_model.ipynb
+├── 2_analysis_RFR_model.ipynb
+├── 2_analysis_XGB_model.ipynb
+├── 3_analysis_NN_model.ipynb
+├── 3_analysis_TS_model.ipynb
+├── LICENSE
+├── README.md
+├── Untitled.ipynb
+├── __data_engineering.ipynb
+├── data
+│   ├── FS_sp500_QReport_funged.csv
+│   ├── FS_sp500_QReports.csv
+│   ├── FS_sp500_merged_cleaned_stats.csv
+│   ├── FS_sp500_merged_stats.csv
+│   ├── sp500_Wsector1.6.csv
+│   ├── sp_500_merged_wsectors_data.csv
+│   └── sp_500_merged_wsectors_data.xlsx
+├── data_origin
+│   ├── FS_sp500_Recent_Value.csv
+│   ├── FS_sp500_Recent_Value.json
+│   ├── FS_sp500_Value.csv
+│   ├── FS_sp500_Value.json
+│   ├── FS_sp500_addstats.csv
+│   ├── FS_sp500_addstats.json
+│   ├── FS_sp500_balsheets.csv
+│   ├── FS_sp500_balsheets.json
+│   ├── FS_sp500_flow.csv
+│   ├── FS_sp500_flow.json
+│   ├── FS_sp500_income.csv
+│   ├── FS_sp500_income.json
+│   ├── FS_sp500_stats.csv
+│   └── FS_sp500_stats.json
+├── database_creation.sql
+├── folder_structure.txt
+├── images
+│   ├── bokeh_plot.png
+│   ├── code_and_model_score_screenshots
+│   │   ├── QReport_screenshot.png
+│   │   ├── QReport_screenshot2.png
+│   │   ├── financials_get_out_function.png
+│   │   ├── folder_structure.png
+│   │   ├── rfr_model_input_shape.png
+│   │   ├── rfr_model_predict_scores.png
+│   │   ├── rfr_model_prediction_list.png
+│   │   └── rfr_model_testtrain_split.png
+│   └── ml_test_1.png
+├── load_data.sql
+├── model
+│   ├── RFR_model_nosect.pkl
+│   ├── RFR_model_sect.pkl
+│   ├── RFR_scaler_nosect.pkl
+│   └── RFR_scaler_sect.pkl
+├── test.py
+├── ui.py
+├── ui3.py
+├── ui_2.py
+├── ui_backend.py
+├── ui_backend_notebook.ipynb
+├── utils
+│   ├── __pycache__
+│   │   ├── financials.cpython-37.pyc
+│   │   └── trades.cpython-37.pyc
+│   ├── financials.py
+│   └── trades.py
+└── valuation_metrics.md
+
+7 directories, 64 files

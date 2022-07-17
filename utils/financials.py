@@ -1,9 +1,13 @@
 """
 
-NOTE: This is a modified version of an object class that inports data and also performs calculations that we need for valuation.
-The MarketCap was missing too much data in teh stats file.  So we added OutstandingShare to the collectiuon process and calculated MarketCap afterwards right in the notebook.
+NOTE: This is a modified version of an object class that inports data and also performs
+      calculations that we need for valuation. 
+      
+      The MarketCap was missing too much data in the first steps of data extraction. So 
+      we added OutstandingShare to the collectiuon process and calculated MarketCap 
+      afterwards right in the notebook.
 
-SRC: https://www.kaggle.com/code/hanseopark/prediction-of-price-for-ml-with-finance-stats?scriptVersionId=67455884&cellId=5
+SRC:  https://www.kaggle.com/code/hanseopark/prediction-of-price-for-ml-with-finance-stats?scriptVersionId=67455884&cellId=5
 
 """
 import json

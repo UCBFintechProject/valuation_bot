@@ -1,6 +1,8 @@
 """
-NOTE: Something something
-
+NOTE: A Trade version of the VBot nwill get tickers & trades.  Primarily for phase two
+      getting history to `get` any needed calculations.  This new trade data object can 
+      be used to build larger datasets such as adding Quarterly Reports to establish
+      more of a continuous trend.
 
 """
 import json
