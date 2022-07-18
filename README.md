@@ -147,7 +147,7 @@ Presentation of Data Analysis:
 streamlit run ui.py
 
 ```
-Your screen should duisplay somthing like:
+Your screen should display somthing like:
 
 ![Regressor_chart](images/streamlit0.png)
 
