@@ -1,3 +1,16 @@
+# Executive Summary
+To explore the tricky problem of Valuing public companies by applying Machine Learning techniques to all reported Financial results, instead of traditional metrics like Price to Earnings Ratio etc.
+
+Combine Stock trading data with key Financial Statement results for each publicly traded company, to achieve:
+1. Classification: discover similarities between companies' financial performance and Valuation multiples.
+2. Prediction: forecast Valuation metrics like Free Cash Flow and changes in Market Capitalization.
+3. Back-testing: compare various trading strategies using all non-derived financial reporting metrics.
+
+The predictive gain from using quarterly data is larger for asset-heavy industries and industries with higher levels of earnings smoothness.  This is why we selected S&P500 stocks.
+
+Applying Time series / Moving averages modelling techniques to historical Financial Statements data, to find direct evidence on the usefulness of quarterly data in predicting future operating cash flows. This in turn, can provide a better Machine Learning model for implementing Robo-Advisers that can suggest Buy, Sell or Hold recommendations based on whether  a current Stock Price is UnderValued, OverValued or Fairly Valued, according to the model that crunches through historical financial reports along with trading price data.
+
+
 # valuation_bot
 
 Valuebot allows users to conduct valuation predictions based on fundamental analysis in seconds. 
@@ -31,7 +44,7 @@ matplotlib.pyplot
 pathlib
 sklearn.
 pickle 
-
+xgboost
 
 
 ## Contributors
