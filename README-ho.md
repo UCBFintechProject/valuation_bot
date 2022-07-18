@@ -30,7 +30,7 @@ At the end of the Extraction phase, we have `500x81` of usable data.
 
 We calculated the percentages of null values across rows and columns. After the Transformation phase, we were left with `152x68` - a challange to build a usable model, but not impossible.
 
-    A separate dataset was created and maintained to include [**market sector**](data/sp500_Wsector1.6.csv) info.  Not all were available at the time.  But we would like to continue to explore expanding this data. 
+*A separate dataset was created and maintained to include [**market sector**](data/sp500_Wsector1.6.csv) info.  Not all were available at the time.  But we would like to continue to explore expanding this data.*
 
 
 ## Model Training
