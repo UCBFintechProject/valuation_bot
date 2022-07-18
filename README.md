@@ -3,7 +3,24 @@
 ValuationBot allows users to conduct company valuation predictions based on fundamental analysis in seconds.
 
 This project uses public financial statement data to train machine learning models which return solid valuation predictions. ValuationBot is a web-based application which runs a Python kernel in a Streamlit App. The goal of the project is to deliver an appl that will reduce the time spent on fundamental analysis by both financial professionals and the end investor.
- 
+
+
+## Executive Summary
+
+To explore the tricky problem of Valuing public companies by applying Machine Learning techniques to all reported Financial results, instead of traditional metrics like Price to Earnings Ratio etc.
+
+Combine Stock trading data with key Financial Statement results for each publicly traded company, to achieve:
+1. Classification: discover similarities between companies' financial performance and Valuation multiples.
+2. Prediction: forecast Valuation metrics like Free Cash Flow and changes in Market Capitalization.
+3. Back-testing: compare various trading strategies using all non-derived financial reporting metrics.
+
+The predictive gain from using quarterly data is larger for asset-heavy industries and industries with higher levels of earnings smoothness.  This is why we selected S&P500 stocks.
+
+Applying Time series / Moving averages modelling techniques to historical Financial Statements data, to find direct evidence on the usefulness of quarterly data in predicting future operating cash flows. This in turn, can provide a better Machine Learning model for implementing Robo-Advisers that can suggest Buy, Sell or Hold recommendations based on whether  a current Stock Price is UnderValued, OverValued or Fairly Valued, according to the model that crunches through historical financial reports along with trading price data.
+
+---
+
+
 ## Process
 
 Our ETL is an improvised series of processes that entails ingesting data, processing it to ensure usability, and storing it in a secure and accessible location.
@@ -12,7 +29,7 @@ Our ETL is an improvised series of processes that entails ingesting data, proces
 * Transform - Calculate available non-nulls, invalid floats, etc and impute as necessary.
 * Load - Load the various versions of the processed data into models for analysis and comparison.
 
-## Data Extraction
+### Data Extraction
 
 From Kaggle.com, we chose this dataset because of the curated company statistics and other indicators.  Ther are balance sheets, cash flow & income reports, and recent value datasets. 
 
@@ -33,7 +50,7 @@ We calculated the percentages of null values across rows and columns. After the 
 *A separate dataset was created and maintained to include [**market sector**](data/sp500_Wsector1.6.csv) info.  Not all were available at the time.  But we would like to continue to explore expanding this data.*
 
 
-## Model Training
+### Model Training
 
 To predict MarketCap, we created a Linear Regression model. So we split the data for training and testing at a 30/70 split to start off.
 
@@ -44,18 +61,18 @@ With a quick test on a Linear Regression model, the predictions are good, but no
         1	1.169874e+11	1.007215e+11
         2	1.794584e+11	2.257415e+10
 
-### Neural Network
+#### Neural Network
 
  * [3_analysis_NN_model.ipynb](3_analysis_NN_model.ipynb)
 
-### Random Forest Regressor
+#### Random Forest Regressor
 
  * [2_analysis_RFR_model.ipynb](2_analysis_RFR_model.ipynb)
  * ![scores](images/code_and_model_score_screenshots/rfr_model_predict_scores.png)
  * ![predictions](images/code_and_model_score_screenshots/rfr_model_prediction_list.png)
 
 
-### XGBoost
+#### XGBoost
 
  * [2_analysis_XGB_model.ipynb](2_analysis_XGB_model.ipynb)
  * ![scores](images/code_and_model_score_screenshots/xgb_testtrainscores.png)
