@@ -26,7 +26,7 @@ Market Capitalization for ML modal prediction on our tiny dataset would require 
 
 At the end of the Extraction phase, we have `500x81` of usable data.
 
-![data prep](images/processing_data.png)
+![data prep](images/code_and_model_score_screenshots/processing_data.png)
 
 We calculated the percentages of null values across rows and columns. After the Transformation phase, we were left with `152x68` - a challange to build a usable model, but not impossible.
 
@@ -59,7 +59,7 @@ With a quick test on a Linear Regression model, the predictions are good, but no
 
  * [2_analysis_XGB_model.ipynb](2_analysis_XGB_model.ipynb)
  * ![scores](images/code_and_model_score_screenshots/xgb_testtrainscores.png)
- * ![predictions](images/code_and_model_score_screenshots/xgb_prediction.png)
+ * ![predictions](images/code_and_model_score_screenshots/xgb_predictions.png)
 
 ---
 
@@ -67,7 +67,7 @@ With a quick test on a Linear Regression model, the predictions are good, but no
 
 The program starts by importing financial statement data located in csv files(located under data folder). Then, it utilizes this data to train a Random Forest Regression ML model(located in 2_analysis_RFR_model.ipynb). Subsequently, the training data is passed through by Standard scaler function which improves the quality of the end predictions. The App is programmed to calculate/predict "Market Cap" value yet this figure can be replaced by any of the categories contained in the data set.
 
-![Regressor_chart](https://user-images.githubusercontent.com/101846233/179379862-3fed4ec0-c601-4153-a550-2ce851fd3675.png)
+![Regressor_chart](images/bokeh_plot.png)
 
 ### CUI(Command User Interface)
 
@@ -130,7 +130,13 @@ Presentation of Data Analysis:
 streamlit run ui.py
 
 ```
-![screenshot](https://github.com/UCBFintechProject/valuation_bot/tree/main/images/file.png)
+Your screen should duisplay somthing like:
+
+![Regressor_chart](images/streamlit0.png)
+
+...then a browser window will display the running ValueBot App.
+
+![Regressor_chart](images/streamlit1.png)
 
 
 ## Contributors
